@@ -1,10 +1,9 @@
-resource "vault_generic_secret" "example" {
-  path = "secret/foo"
-
-  data_json = jsonencode(
-    {
-      "foo"   = "bar",
-      "pizza" = "cheese"
-    }
-  )
+module "github" {
+    source = "./modules/github"
+}
+module "approle" {
+    source = "./modules/approle"
+}
+module "userpass" {
+    source = "./modules/userpass"
 }
